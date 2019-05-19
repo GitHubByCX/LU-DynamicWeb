@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--ioc 控制反转 创建什么国家的语言有Spring控制-->
+    <bean id="person" class="cn.cx.myclass.SpringDI_Person">
+        <property name="languge">
+            <bean class="cn.cx.myclass.Spring_Japan"></bean>
+        </property>
+    </bean>
+
+    <!--di 依赖注入 通过配置注入指定的bean-->
+    <bean id="city" class="cn.cx.myclass.SpringDI_City">
+        <property name="person" ref="person"></property>
+    </bean>
+
+</beans>
